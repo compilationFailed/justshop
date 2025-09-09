@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "276797190926",
+    "project_id": "justshop-96ee2",
+    "storage_bucket": "justshop-96ee2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:276797190926:android:15e0b069fe01c7d6fa1d5f",
+        "android_client_info": {
+          "package_name": "com.example.justshop"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvSOtY28385jFEGYIUjT7bGy2c5uFvPso"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
