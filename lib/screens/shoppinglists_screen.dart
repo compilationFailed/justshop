@@ -1,9 +1,6 @@
-// Firebase Authentication package for login and logout
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:justshop/providers/shoppinglistentry_provider.dart';
 import 'package:justshop/screens/edit_entry_screen.dart';
-import 'package:justshop/screens/login_screen.dart';
 import 'package:justshop/widgets/shoppinglistentry_tile.dart';
 import 'package:provider/provider.dart';
 
