@@ -38,6 +38,7 @@ class _EditShoppinglistentryScreenState
         widget.shoppinglistentry!.id,
         nameCtrl.text,
         dateCtrl.text,
+        widget.shoppinglistentry!.isDone,
       );
     }
     Navigator.pop(context);

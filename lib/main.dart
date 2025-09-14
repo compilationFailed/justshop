@@ -3,7 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:justshop/providers/shoppinglistentry_provider.dart';
 import 'package:justshop/screens/login_screen.dart';
-import 'package:justshop/screens/shoppinglists_screen.dart';
+import 'package:justshop/screens/shoppinglist_overview_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         // home entscheidet, welcher Screen beim Start gezeigt wird:
         home: FirebaseAuth.instance.currentUser == null
             ? LoginScreen()
-            : ShoppinglistsScreen(),
+            : ShoppinglistsOverviewScreen(),
       ),
     );
   }

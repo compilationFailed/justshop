@@ -26,7 +26,9 @@ class _LoginScreenState extends State<LoginScreen> {
   void _navigateOnSuccess() {
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (_) => ShoppinglistsScreen()),
+      MaterialPageRoute(
+        builder: (_) => ShoppinglistsScreen(listDate: '2025-09-13'),
+      ),
     );
   }
 

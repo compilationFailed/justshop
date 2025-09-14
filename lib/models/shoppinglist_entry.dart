@@ -10,19 +10,22 @@ class Shoppinglistentry {
   //Date of shopping
   final String shoppingdate;
 
+  final bool isDone;
   //constructor
   Shoppinglistentry({
     required this.id,
     required this.name,
     required this.shoppingdate,
+    required this.isDone,
   });
 
   Map<String, dynamic> toMap() => {'name': name, 'shoppingdate': shoppingdate};
   factory Shoppinglistentry.fromMap(String id, Map<String, dynamic> data) {
     return Shoppinglistentry(
       id: id, // Dokument-ID
-      name: data['name'], // Feld "title" aus Firestore
-      shoppingdate: data['shoppingdate'], // Feld "content" aus Firestore
+      name: data['name'],
+      shoppingdate: data['shoppingdate'],
+      isDone: data['isDone'] ?? false,
     );
   }
 }
