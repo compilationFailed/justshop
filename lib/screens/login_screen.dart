@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:justshop/screens/shoppinglists_screen.dart';
+import 'package:justshop/screens/shoppinglist_overview_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -26,9 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
   void _navigateOnSuccess() {
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(
-        builder: (_) => ShoppinglistsScreen(listDate: '2025-09-13'),
-      ),
+      MaterialPageRoute(builder: (_) => ShoppinglistsOverviewScreen()),
     );
   }
 
