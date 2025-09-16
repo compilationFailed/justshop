@@ -64,6 +64,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
       body: Column(
         mainAxisSize: MainAxisSize.max,
@@ -76,9 +77,16 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   Text(
                     'Shopping List',
-                    style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold,
+                      color: theme.colorScheme.primary,
+                    ),
                   ),
-                  Text('Create Shopping Lists to manage your groceries.'),
+                  Text(
+                    'Create Shopping Lists to manage your groceries.',
+                    style: TextStyle(color: theme.colorScheme.onSurface),
+                  ),
                 ],
               ),
             ),
@@ -88,41 +96,42 @@ class _LoginScreenState extends State<LoginScreen> {
             child: SingleChildScrollView(
               padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 40),
               child: Card(
-                elevation: 8, // Schatteneffekt
+                elevation: 8,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16),
                 ),
+                color: theme.cardColor,
                 child: Padding(
                   padding: const EdgeInsets.all(24),
                   child: Form(
-                    key:
-                        _formKey, // verbindet die Eingabefelder mit der Validation
+                    key: _formKey,
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        // Titel abhängig von Modus: Login oder Register
                         Text(
                           _isLogin ? 'Login' : 'Register',
                           style: TextStyle(
                             fontSize: 26,
                             fontWeight: FontWeight.bold,
+                            color: theme.colorScheme.primary,
                           ),
                         ),
                         SizedBox(height: 20),
 
-                        // Email-Feld
                         TextFormField(
                           controller: _emailCtrl,
                           decoration: InputDecoration(
                             labelText: 'Email',
-                            prefixIcon: Icon(Icons.email),
+                            prefixIcon: Icon(
+                              Icons.email,
+                              color: theme.colorScheme.primary,
+                            ),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8),
                             ),
                           ),
                           keyboardType: TextInputType.emailAddress,
                           validator: (value) {
-                            // Validierung: einfache Prüfung auf '@'
                             if (value == null || !value.contains('@')) {
                               return 'Enter a valid email.';
                             }
@@ -135,7 +144,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           controller: _passwordCtrl,
                           decoration: InputDecoration(
                             labelText: 'Password',
-                            prefixIcon: Icon(Icons.lock),
+                            prefixIcon: Icon(
+                              Icons.lock,
+                              color: theme.colorScheme.primary,
+                            ),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8),
                             ),
@@ -154,12 +166,13 @@ class _LoginScreenState extends State<LoginScreen> {
                           width: double.infinity,
                           child: ElevatedButton(
                             onPressed: _isLoading ? null : _submit,
-                            // Wenn _isLoading true ist -> Button deaktiviert
                             style: ElevatedButton.styleFrom(
                               padding: EdgeInsets.symmetric(vertical: 14),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8),
                               ),
+                              backgroundColor: theme.colorScheme.primary,
+                              foregroundColor: theme.colorScheme.onPrimary,
                             ),
                             child: _isLoading
                                 ? SizedBox(
@@ -167,7 +180,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     height: 24,
                                     child: CircularProgressIndicator(
                                       strokeWidth: 2,
-                                      color: Colors.white,
+                                      color: theme.colorScheme.onPrimary,
                                     ),
                                   )
                                 : Text(
@@ -180,6 +193,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
                         TextButton(
                           onPressed: () => setState(() => _isLogin = !_isLogin),
+                          style: TextButton.styleFrom(
+                            foregroundColor: theme.colorScheme.secondary,
+                          ),
                           child: Text(
                             _isLogin
                                 ? "Don't have an account? Register"
